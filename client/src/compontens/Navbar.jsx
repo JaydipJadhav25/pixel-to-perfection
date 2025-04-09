@@ -1,50 +1,31 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import React from 'react';
 
-export default function Navbar() {
-  const [username, setUsername] = useState('');
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user?.name) {
-      setUsername(user.name);
-    }
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem('user'); // or token
-    setUsername('');
-    navigate('/login');
-  };
-
+const Navbar = () => {
   return (
-    <nav className="bg-green-600 text-white p-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold">DoubtConnect</h1>
-      <div className="space-x-4 flex items-center">
-        <Link to="/">Home</Link>
-        <Link to="/ask">Ask Doubt</Link>
-        <Link to="/doubts">All Doubts</Link>
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        
+        {/* Logo & College Name */}
+        <div className="flex items-center space-x-3">
+          {/* Replace with your college logo image */}
+          <img
+            src="/logo.png" // 👈 Replace with your actual logo path
+            alt="College Logo"
+            className="h-10 w-10 object-contain"
+          />
+          <span className="text-xl font-semibold text-blue-800">Association of Computer Engineering Students (ACES) a</span>
+        </div>
 
-        {username ? (
-          <>
-            <span className="ml-4 font-medium">Hi, {username}</span>
-            <button
-              onClick={handleLogout}
-              className="bg-white text-green-600 px-3 py-1 rounded hover:bg-green-100 ml-2"
-            >
-              Logout
-            </button>
-          </>
-        ) : (
-          <Link
-            to="/login"
-            className="bg-white text-green-600 px-3 py-1 rounded hover:bg-green-100 ml-2"
-          >
-            Login
-          </Link>
-        )}
+        {/* Navigation Links */}
+        <ul className="flex space-x-6 font-medium text-gray-700">
+          <li className="hover:text-blue-600 cursor-pointer">Home</li>
+          <li className="hover:text-blue-600 cursor-pointer">Department</li>
+          <li className="hover:text-blue-600 cursor-pointer">Events</li>
+          <li className="hover:text-blue-600 cursor-pointer">Contact</li>
+        </ul>
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
