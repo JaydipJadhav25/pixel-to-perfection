@@ -1,0 +1,39 @@
+.main{
+    /* background-color: aqua; */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.box{
+    /* background-color: red; */
+    width: 50%;
+    height: 50%;
+    margin-top: 30px;
+    /* border-radius: 20% ; */
+    color: white;
+    border: 2px solid rgb(146, 108, 39);
+    text-align: center;
+    margin:  10px;
+}
+/* 
+input{
+   border-radius: 10px;
+   height: 40px;
+
+}
+
+label{
+    font-size: 20px;
+    
+    font-weight: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+input:hover{
+    border-radius: 11px;
+    border: 3px gold solid;
+} */

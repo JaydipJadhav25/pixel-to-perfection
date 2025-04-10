@@ -8,7 +8,9 @@ const users = [];
 
 const signup = async (req, res) => {
     try {
-        const { email, password, role } = req.body;
+        const { email, password, role , name } = req.body;
+
+        console.log("data : " , email, password, role , name);
 
         if (!email || !password || !role) {
             return res.status(400).json({ message: 'All fields are required' });
@@ -24,7 +26,7 @@ const signup = async (req, res) => {
         const user = await UserModel.create({
             email,
             password: hashedPassword,
-            role
+            role , 
         });
 
         if(!user){
@@ -40,13 +42,16 @@ const signup = async (req, res) => {
 // Login function
 const login = async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { email, password  } = req.body;
+
+        console.log("data login : " , email, password);
 
         if (!email || !password) {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
         const user = await UserModel.findOne({ email });
+
         if (!user) {
             return res.status(400).json({ message: 'Invalid email or password' });
         }
@@ -57,7 +62,8 @@ const login = async (req, res) => {
         }
 
         const token = jwt.sign({ email: user.email, role: user.role }, 'supeeman@123', { expiresIn: '1h' });
-        res.status(200).json({ message: 'Login successful', token });
+
+        res.status(200).json({ message: 'Login successful', token ,  email: user.email, role: user.role  });
     } catch (error) {
         res.status(500).json({ message: 'An error occurred', error: error.message });
     }

@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+  }
+
+
+  /* styles/globals.css */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .fixed {
+    position: fixed;
+  }
+  
+  .inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .bg-gray-200 {
+    background-color: #edf2f7;
+  }
+  
+  .bg-opacity-50 {
+    background-color: rgba(237, 242, 247, 0.5);
+  }
+  
+  .z-50 {
+    z-index: 50;
+  }
+  
+  .w-16 {
+    width: 4rem;
+  }
+  
+  .h-16 {
+    height: 4rem;
+  }
+  
+  .border-4 {
+    border-width: 4px;
+  }
+  
+  .border-blue-500 {
+    border-color: #3b82f6;
+  }
+  
+  .border-t-transparent {
+    border-top-color: transparent;
+  }
+  
+  .border-solid {
+    border-style: solid;
+  }
+  
+  .rounded-full {
+    border-radius: 9999px;
+  }
+  
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+  
